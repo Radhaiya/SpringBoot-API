@@ -46,6 +46,7 @@ public class EmployeeController {
 
     @PutMapping("/employee/{emid}")
     public String editEmployeeId(@PathVariable long emid,@RequestBody Employee employee){
+        System.out.println(employee);
        Optional<Employee> emp =  employeeRepository.findById(emid);
        if(emp.isPresent()){
            Employee existEmployee = emp.get();
@@ -74,4 +75,5 @@ public class EmployeeController {
             return new ResponseEntity<>("Not found with ID"+emid ,HttpStatus.NOT_FOUND);
         }
     }
+
 }
