@@ -13,16 +13,17 @@ public class Employee {
 
     @JsonProperty("employee_name")
     @Column(name = "emp_name")
-    private String emp_name;
+    private String empname;
 
     @Column(name = "emp_salaray")
-    private Float emp_salary;
+    private Float empsalary;
 
     @Column(name = "emp_age")
-    private int emp_age;
+    private int empage;
+
 
     @Column(name = "emp_city")
-    private String emp_city;
+    private String empcity;
 
 
     ///Getter and Setters
@@ -35,43 +36,43 @@ public class Employee {
     }
 
     public String getEmp_name() {
-        return emp_name;
+        return empname;
     }
 
     public void setEmp_name(String emp_name) {
-        this.emp_name = emp_name;
+        this.empname = emp_name;
     }
 
     public Float getEmp_salary() {
-        return emp_salary;
+        return empsalary;
     }
 
     public void setEmp_salary(Float emp_salary) {
-        this.emp_salary = emp_salary;
+        this.empsalary = emp_salary;
     }
 
     public int getEmp_age() {
-        return emp_age;
+        return empage;
     }
 
     public void setEmp_age(int emp_age) {
-        this.emp_age = emp_age;
+        this.empage = emp_age;
     }
 
     public String getEmp_city() {
-        return emp_city;
+        return empcity;
     }
 
     public void setEmp_city(String emp_city) {
-        this.emp_city = emp_city;
+        this.empcity = emp_city;
     }
 
     public Employee(Long empid, String emp_name, Float emp_salary, int emp_age, String emp_city) {
         this.empid = empid;
-        this.emp_name = emp_name;
-        this.emp_salary = emp_salary;
-        this.emp_age = emp_age;
-        this.emp_city = emp_city;
+        this.empname = emp_name;
+        this.empsalary = emp_salary;
+        this.empage = emp_age;
+        this.empcity = emp_city;
     }
 
     public Employee(){
@@ -82,10 +83,10 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "empid=" + empid +
-                ", emp_name='" + emp_name + '\'' +
-                ", emp_salary=" + emp_salary +
-                ", emp_age=" + emp_age +
-                ", emp_city=" + emp_city +
+                ", emp_name='" + empname + '\'' +
+                ", emp_salary=" + empsalary +
+                ", emp_age=" + empage +
+                ", emp_city=" + empcity + '\''+
                 '}';
     }
 }

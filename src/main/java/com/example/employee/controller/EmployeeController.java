@@ -22,6 +22,7 @@ public class EmployeeController {
 
     @PostMapping("/employee")
     public String createNewEmployee(@RequestBody Employee employee){
+        System.out.println(employee);
         employeeRepository.save(employee);
         return "Database is Created";
     }
@@ -69,11 +70,22 @@ public class EmployeeController {
         if(emp.isPresent()){
             Employee existEmployee = emp.get();
             employeeRepository.delete(existEmployee);
-            return new ResponseEntity<>("Deleted with ID"+emid ,HttpStatus.OK);
+            return new ResponseEntity<>("Deleted with ID "+emid ,HttpStatus.OK);
         }
         else {
-            return new ResponseEntity<>("Not found with ID"+emid ,HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Not found with ID "+emid ,HttpStatus.NOT_FOUND);
         }
     }
 
-}
+        @GetMapping("/employee/empcity")
+        public ResponseEntity<List<Employee>>getByCityName(@RequestParam("emp_city") String emp_city){
+            System.out.println("Hit");
+
+
+            List<Employee> emplist = employeeRepository.findByEmpcity(emp_city);
+            System.out.println(emplist);
+
+            return new ResponseEntity<List<Employee>>(emplist ,HttpStatus.OK);
+
+        }
+    }
